@@ -22,7 +22,6 @@ com.android.hotwordenrollment.okgoogle
 com.google.android.keep
 com.google.ar.lens
 com.heytap.usercenter
-com.coloros.gallery3d
 com.heytap.pictorial
 com.google.android.apps.nbu.paisa.user
 com.facebook.system
