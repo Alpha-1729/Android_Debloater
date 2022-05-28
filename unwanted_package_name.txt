@@ -44,3 +44,4 @@ com.oplus.games
 com.google.aandroid.gsf
 com.google.android.apps.magazines
 com.google.android.videos
+com.coloros.gamespaceui

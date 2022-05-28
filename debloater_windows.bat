@@ -44,4 +44,5 @@ adb shell pm uninstall -k --user 0 com.oplus.games
 adb shell pm uninstall -k --user 0 com.google.aandroid.gsf
 adb shell pm uninstall -k --user 0 com.google.android.apps.magazines
 adb shell pm uninstall -k --user 0 com.google.android.videos
+adb shell pm uninstall -k --user 0 com.coloros.gamespaceui
 pause
