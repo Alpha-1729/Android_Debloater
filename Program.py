@@ -1,9 +1,9 @@
 # Debloater Android
 
 """
->>>> Script to remove the unwanted application from the android.
+>>>> Script to remove the bloatware from the android.
 >>>> Steps:
-         Add the package name of the unwanted apps into the txt file.
+         Add the package name of the unwanted apps into the .txt file.
          Then run the python file using the Run.bat file.
          In linux please run the Program.py file.
          After running the script:
@@ -27,7 +27,6 @@ if os.path.exists(debloater_windows_loc):
 # Remove debloater file for linux.
 if os.path.exists(debloater_linux_loc):
     os.remove(debloater_linux_loc)
-    
 
 # Function for writing the script to debloater file.
 def append_to_file(file_name, content):
@@ -44,11 +43,4 @@ for package_name in package_name_list:
     append_to_file(debloater_windows_loc, uninstall_command)
     append_to_file(debloater_linux_loc, uninstall_command)
 
-
 append_to_file(debloater_windows_loc, "\npause")
-
-
-
-
-
-
