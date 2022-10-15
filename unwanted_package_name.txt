@@ -7,7 +7,7 @@ com.google.android.apps.chromecast.app
 com.google.android.googlequicksearchbox
 com.opos.cs
 com.google.android.apps.messaging
-com.coloros.weather2
+com.coloros.weather
 com.finshell.fin
 com.google.android.calendar
 com.heytap.cloud
@@ -36,6 +36,8 @@ com.oppoex.afterservice
 com.heytap.themestore
 com.google.android.apps.docs
 com.coloros.weather.service
+com.coloros.weather2
+com.coloros.compass2
 com.google.android.inputmethod.latin
 com.google.android.gms.location.history
 com.google.android.apps.googleassistant
@@ -49,3 +51,4 @@ com.google.aandroid.gsf
 com.google.android.apps.magazines
 com.google.android.videos
 com.coloros.gamespaceui
+com.google.android.apps.nbu.files
