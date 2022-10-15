@@ -1,5 +1,9 @@
 com.google.android.gm
-com.google.android.apps.nbu.files
+com.realmestore.app
+com.realmecomm.app
+com.google.android.videos
+com.google.android.apps.magazines
+com.google.android.apps.chromecast.app
 com.google.android.googlequicksearchbox
 com.opos.cs
 com.google.android.apps.messaging
