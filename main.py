@@ -15,7 +15,7 @@ from tkinter import filedialog
 
 debloater_file_info_dic = {
     "Windows": ["debloater.bat", "\npause"],
-    "Linux": ["debloater.sh", "\n"]
+    "Linux": ["debloater.sh", "\nread"]
 }
 
 # Function for writing the script to debloater file.
