@@ -1,49 +1,45 @@
-# Debloater Android
-
-"""
->>>> Script to remove the bloatware from the android.
->>>>
->>>>
->>>>
->>>>
->>>>
-"""
+# Android Debloater.
+# Python script to remove all bloatware applications from android.
 
 import os
+import json
 import platform
 from tkinter import filedialog
+import config
 
-debloater_file_info_dic = {
-    "Windows": {"OutputFile": "debloater.bat", "FinalCommand": "\npause"},
-    "Linux": {"OutputFile": "debloater.sh", "FinalCommand": "\nread"}
-}
 
-# Function for writing the uninstall command to debloater file.
+# Function for writing statements to debloater file.
 def append_to_file(file_name, content):
     with open(file_name, "a") as out_file:
         out_file.write(content)
 
-debloater_info = debloater_file_info_dic.get(platform.system())
-debloater_out_file = debloater_info.get("OutputFile")
-debloater_final_command = debloater_info.get("FinalCommand")
 
-package_file = filedialog.askopenfilename(initialdir=os.getcwd(), title="Select the package file")
+current_platform = platform.system()
+debloater_configs = config.platform_config.get(current_platform)
+debloater_out_file = debloater_configs.get("OutputFile")
+debloater_pause_command = debloater_configs.get("PauseCommand")
 
 # Remove debloater file if already exist.
 if os.path.exists(debloater_out_file):
     os.remove(debloater_out_file)
 
-# Read all package name from the package file.
-with open(package_file, "r") as bloatware:
-    package_name_list = bloatware.readlines()
+# Open the json file containing package name list.
+unwanted_package_file_path = filedialog.askopenfilename(
+    initialdir=os.getcwd(), title="Select the json file containing unwanted packages")
+
+unwanted_packages_content = open(unwanted_package_file_path, "r")
+unwanted_packages_dic = json.load(unwanted_packages_content)
+
+debloat_command_list = ["adb shell pm uninstall -k --user 0 {}".format(
+    package_name) for package_name in unwanted_packages_dic.get("Packages")]
 
 # Debloater script.
-debloat_command_list = ["adb shell pm uninstall -k --user 0 {}".format(package_name) for package_name in package_name_list]
-debloat_script = "".join(debloat_command_list)
+debloater_script = "\n".join(debloat_command_list)
 
-append_to_file(debloater_out_file, debloat_script)
-append_to_file(debloater_out_file, debloater_final_command)
+append_to_file(debloater_out_file, debloater_script)
+append_to_file(debloater_out_file, debloater_pause_command)
 
+# Execute the script.
 os.system(debloater_out_file)
 
-print("Completed")
+print("Debloater executed successfully.")
