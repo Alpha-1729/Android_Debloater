@@ -3,9 +3,9 @@
 
 import os
 import json
+import config
 import platform
 from tkinter import filedialog
-import config
 
 
 # Function for writing statements to debloater file.
@@ -25,13 +25,16 @@ if os.path.exists(debloater_out_file):
 
 # Open the json file containing package name list.
 unwanted_package_file_path = filedialog.askopenfilename(
-    initialdir=os.getcwd(), title="Select the json file containing unwanted packages")
+    initialdir=os.getcwd(), title="Select the json file containing unwanted packages"
+)
 
 unwanted_packages_content = open(unwanted_package_file_path, "r")
 unwanted_packages_dic = json.load(unwanted_packages_content)
 
-debloat_command_list = ["adb shell pm uninstall -k --user 0 {}".format(
-    package_name) for package_name in unwanted_packages_dic.get("Packages")]
+debloat_command_list = [
+    "adb shell pm uninstall -k --user 0 {}".format(package_name)
+    for package_name in unwanted_packages_dic.get("Packages")
+]
 
 # Debloater script.
 debloater_script = "\n".join(debloat_command_list)
